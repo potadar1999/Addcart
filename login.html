@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <form id="form">
+        <input id="name" type="text" placeholder="User Name">
+        <input id="email" type="text" placeholder="Email adress">
+        <input id="mobile" type="number" placeholder="Mobile NUmber"> 
+        <input id="password" type="number" placeholder="password">
+        <input type="submit">
+
+    </form>
+
+   <style>
+        form{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(4, 50px);
+            gap: 20px;
+            padding: 30px;
+            width: 30%;
+            margin: auto;
+         }
+         #bag{
+             display: flex;
+             justify-content: space-evenly;
+             background-color: teal;
+             padding: 10px;
+         }
+        
+       
+   </style>
+
+
+
+</body>
+</html>
+
+<script>
+    document.querySelector("#form").addEventListener("submit",myfum)
+
+    var user=JSON.parse(localStorage.getItem("data")) || []
+
+    function myfum(){
+
+        event.preventDefault();
+
+        var collection={
+        name:form.name.value,
+        email:form.email.value,
+        mobile:form.mobile.value,
+        password:form.password.value,
+        }
+
+        user.push(collection)
+        // console.log(collect)
+        localStorage.setItem("user",JSON.stringify(collection))
+        window.location.href="sign.html"
+          
+    }
+
+</script>
